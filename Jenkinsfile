@@ -25,7 +25,7 @@ node('node') {
     stage 'Deploy'
 
       echo 'Push to Repo'
-      sh "./dockerfiles/deploy.staging.sh heroku-email-service storjlabs/heroku-email-service:${env.BUILD_ID}"
+      sh "./dockerfiles/deploy.staging.sh heroku-service heroku-email-service ${commit_id}"
 
     stage 'Cleanup'
 
