@@ -6,7 +6,7 @@ done
 
 echo "Building with TAG_PARAMS: ${TAG_PARAMS}"
 
-docker build ${TAG_PARAMS} -f ./dockerfiles/server.dockerfile .
+docker build ${TAG_PARAMS} -f ./dockerfiles/server.Dockerfile .
 result=$?
 
 if [[ $result != 0 ]]; then
