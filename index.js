@@ -89,6 +89,7 @@ function onEmail(address, pathname, cb) {
       // that a heroku user receives an email requiring that they confirm their
       // account.
       var subject = email.subject.toLowerCase();
+      log.info(`Got email with subject ${subject}`);
       if(subject.indexOf('confirm your email address') !== -1) {
         log.info(`%s: Auto accepting registration for %s`,
         address.address,
@@ -104,6 +105,8 @@ function onEmail(address, pathname, cb) {
           }
           log.info(`${address.address}: Called ${url}`);
         });
+      } else {
+        log.info(`Subject ${subject} does not match expected subject`);
       }
 
       // Since the message didn't have the subject we expect of registration
